@@ -1,5 +1,7 @@
 import pandas as pd
-import os
+import os 
+from helpers import read_analytics_data
+# from helpers import extract_quarter_info
 
 # Prompt the user for the directory containing CSV files
 csv_directory = input("Enter the path to the CSV files directory: ")
@@ -7,19 +9,14 @@ csv_directory = input("Enter the path to the CSV files directory: ")
 # Prompt the user for the report name
 report_name = input("Please provide the report name (with no spaces): ")
 
-# Initialize an empty dataframe
+# Read data from the CSV files using the custom function
 combined_df = pd.DataFrame()
-
-# Loop through each CSV file in the directory
 for filename in os.listdir(csv_directory):
     if filename.endswith(".csv"):
         filepath = os.path.join(csv_directory, filename)
-        # Read data from the CSV file (skip the header row)
-        df = pd.read_csv(filepath, skiprows=6)  # Skip the first 7 rows (0-based indexing)
-        # Select columns 7a through 18b (adjust column names as needed)
-        selected_columns = df.iloc[:, 6:29]  # Assuming 0-based indexing
-        # Concatenate with the combined dataframe
-        combined_df = pd.concat([combined_df, selected_columns], axis=0)
+        df = read_analytics_data(filepath)  # Use the custom function
+        if df is not None:
+            combined_df = pd.concat([combined_df, df], axis=0)
 
 # Write the combined dataframe to a new CSV file
 combined_df.to_csv(report_name, index=False)
