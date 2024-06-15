@@ -29,9 +29,10 @@ def extract_quarter_info(filename):
 
     # Convert month numbers to month names
     month_names = {
-        "01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr",
-        "05": "May", "06": "Jun", "07": "Jul", "08": "Aug",
-        "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec"
+        "01": "Jan", "02": "Feb", "03": "Mar",
+        "04": "Apr", "05": "May", "06": "Jun",
+        "07": "Jul", "08": "Aug", "09": "Sep",
+        "10": "Oct", "11": "Nov", "12": "Dec"
     }
     start_month_name = month_names.get(start_month, start_month)
     end_month_name = month_names.get(end_month, end_month)
