@@ -22,9 +22,13 @@ for filename in os.listdir(csv_directory):
             df.sort_index(inplace=True)
             combined_df = pd.concat([combined_df, df], axis=0)
 
+# Create a results folder if it doesn't exist
+results_folder = "results"
+os.makedirs(results_folder, exist_ok=True)
+
 # Write the combined dataframe to a new CSV file in the results folder
 report_name = input("Please provide the report name (with no spaces): ") + ".csv"
-output_path = os.path.join("results", report_name)
+output_path = os.path.join(results_folder, report_name)
 combined_df.to_csv(output_path, index=False)
 
 print(f"Data aggregated successfully. Output saved to {report_name}")
