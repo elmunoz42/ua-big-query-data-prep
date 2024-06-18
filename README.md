@@ -27,5 +27,3 @@ Example
 Suppose you have quarterly sales data split across four CSV files (Q1.csv, Q2.csv, Q3.csv, and Q4.csv). Each file contains columns 7a through 18b representing sales data. Running this script will combine the relevant columns from all files into a single CSV report.
 
 Feel free to customize the script to match your specific use case!
-
-Feel free to replace the placeholders with actual details and customize the README.md file as needed for your project. Happy data aggregation! 📊🐍
